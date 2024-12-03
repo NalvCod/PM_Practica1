@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/c1" />
+            android:src="@drawable/volteada" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,177 +38,202 @@
             android:textColor="@color/white"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mesa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/barraSuperior"
-        android:layout_margin="20dp">
 
-        <TextView
-            android:id="@+id/vidas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vidas: 3"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@id/f1"
-            app:layout_constraintEnd_toEndOf="@+id/f2">
-
-        </TextView>
-
-        <LinearLayout
-            android:id="@+id/f1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="30dp"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/f1c1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f1c2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f1c3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/f2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/f1"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/f2c1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f2c2"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f2c3"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/f3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            app:layout_constraintTop_toBottomOf="@id/f2"
-            app:layout_constraintHorizontal_weight="1"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/f3c1"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f3c2"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f3c3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/f4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            app:layout_constraintTop_toBottomOf="@id/f3"
-            app:layout_constraintHorizontal_weight="1"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/f4c1"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f4c2"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:layout_height="wrap_content"
-                android:src="@drawable/c1" />
-
-            <ImageView
-                android:id="@+id/f4c3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:src="@drawable/c1" />
-
-        </LinearLayout>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/iniciar"
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INICIAR PARTIDA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mesa"
-        android:layout_marginTop="30dp">
-    </Button>
+        app:layout_constraintTop_toBottomOf="@id/barraSuperior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="300dp">
+
+            <TextView
+                android:id="@+id/vidas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:text="Vidas: 3"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <LinearLayout
+                android:id="@+id/f1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/f1c1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f1c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f1c3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/f2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/f1">
+
+                <ImageView
+                    android:id="@+id/f2c1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f2c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f2c3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/f3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/f2">
+
+                <ImageView
+                    android:id="@+id/f3c1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f3c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f3c3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/f4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/f3">
+
+                <ImageView
+                    android:id="@+id/f4c1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f4c2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+                <ImageView
+                    android:id="@+id/f4c3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/volteada" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/iniciar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INICIAR PARTIDA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/f4"></Button>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
 
 
 
