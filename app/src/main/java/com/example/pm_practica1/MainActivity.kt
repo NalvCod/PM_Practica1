@@ -3,17 +3,11 @@ package com.example.pm_practica1
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var f1c1 : ImageView
     private lateinit var f1c2 : ImageView
     private lateinit var f1c3 : ImageView
@@ -29,11 +23,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var vidas : TextView
     private lateinit var iniciar : Button
 
-    private var cartasVolteadas = Array(12) {false}
+    private var estadoCartas = Array(12) {0}
+
     private var pares = intArrayOf(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6)
-    private var pareja = intArrayOf(-1, -2)
-    private var contador = 0
-    private var puntosVida = 3
+    private var parejaId = intArrayOf(-1, -2)
+    private var parejaPos = intArrayOf(-1, -2)
+
+    private var contadorPareja = 0
+    private var puntosVida = 10
     private lateinit var casillas :  Array<ImageView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         iniciar.setOnClickListener {
             cartasTapar()
             randomizarCartas()
-            contador = 0
+            contadorPareja = 0
             puntosVida = 3
         }
 
@@ -69,26 +66,35 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 0 .. 11) {
             casillas[i].setOnClickListener {
-                if (contador < 2 && puntosVida >= 0) {
-                    var volteable = sePuedeVoltear(i)
-                    if (volteable) {
+                if (contadorPareja != 2 && puntosVida >= 0) {
+                    if (sePuedeVoltear(i)) {
                         voltearCarta(i)
-                        pareja[contador] = pares[i] //Asigno el valor de la carta a la variable par para comparar si tienen el mismo
-                        contador++
+                        parejaId[contadorPareja] = pares[i] //Asigno el valor de la carta a la variable par para comparar si tienen el mismo
+                        parejaPos[contadorPareja] = i
+                        Log.v("debug2", "id Carta: "+parejaId[contadorPareja])
+                        Log.v("debug2", "pos Carta: "+parejaPos[contadorPareja])
+                        contadorPareja++
 
                     }
-                } else {
-                    val esPareja = sonPareja()
-                    if (esPareja) {
-                    } else {
-                        puntosVida -= 1
-                        vidas.text = "Vidas: "+puntosVida
-                        cartasTapar()
-                    }
-                    contador = 0
-
                 }
-                if (puntosVida <= 0){
+                if (contadorPareja == 2) {
+
+                    if (sonPareja()) {
+                        Log.v("debug2", "contador con: " + contadorPareja)
+                        // Si son pareja, reinicia el contador para seguir buscando sin clic adicional
+                        contadorPareja = 0
+                    } else {
+                        Thread.sleep(1000)
+                        puntosVida -= 1
+                        vidas.text = "Vidas: $puntosVida"
+                        Log.v("debug2", "contador sin pareja: " + contadorPareja)
+                        cartasTapar()
+                        // Reinicia el contador de parejas aquí para continuar buscando inmediatamente
+                        contadorPareja = 0
+                    }
+                }
+
+                if (puntosVida <= 0) {
                     cartasTapar()
                     randomizarCartas()
                 }
@@ -98,10 +104,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun sePuedeVoltear(pos:Int):Boolean{
-        if (!cartasVolteadas[pos]){
-            cartasVolteadas[pos]
-            return true
-        }else return false
+        return estadoCartas[pos] == 0
     }
 
     fun randomizarCartas(){
@@ -113,24 +116,31 @@ class MainActivity : AppCompatActivity() {
 //        casillas[pos].setImageResource(R.drawable.c1)
         when(pares[pos]){
             1 -> casillas[pos].setImageResource(R.drawable.coco)
-            2 -> casillas[pos].setImageResource(R.drawable.agatan)
-            3 -> casillas[pos].setImageResource(R.drawable.cleo)
+            2 -> casillas[pos].setImageResource(R.drawable.corvilo)
+            3 -> casillas[pos].setImageResource(R.drawable.aquilino)
             4 -> casillas[pos].setImageResource(R.drawable.pando)
-            5 -> casillas[pos].setImageResource(R.drawable.parchesd)
-            6 -> casillas[pos].setImageResource(R.drawable.pupas)
+            5 -> casillas[pos].setImageResource(R.drawable.alfonso)
+            6 -> casillas[pos].setImageResource(R.drawable.saponcio)
         }
-        cartasVolteadas[pos] = true
+        estadoCartas[pos] = 1
     }
 
     fun cartasTapar(){
         for (i in 0 .. 11){
-            casillas[i].setImageResource(R.drawable.volteada)
-            cartasVolteadas[i] = false
+            if (estadoCartas[i] != 3){
+                casillas[i].setImageResource(R.drawable.detras)
+                estadoCartas[i] = 0
+            }
         }
     }
 
     fun sonPareja(): Boolean {
-        return pareja[0] == pareja[1]
+        if(parejaId[0] == parejaId[1]){
+            estadoCartas[parejaPos[0]] = 3
+            estadoCartas[parejaPos[1]] = 3
+        }
+        contadorPareja = 0
+        return parejaId[0] == parejaId[1]
     }
 
 

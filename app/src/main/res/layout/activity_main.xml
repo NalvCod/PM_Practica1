@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/volteada" />
+            android:src="@drawable/detras" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,25 +39,25 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barraSuperior">
+        app:layout_constraintTop_toBottomOf="@id/barraSuperior"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mesa"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginBottom="300dp">
+            android:layout_height="match_parent"
+            android:layout_margin="20dp">
 
             <TextView
                 android:id="@+id/vidas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="7dp"
                 android:text="Vidas: 3"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,15 +65,25 @@
 
             </TextView>
 
+            <Button
+                android:id="@+id/iniciar"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/f1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <LinearLayout
                 android:id="@+id/f1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_height="0dp"
                 android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/f2"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/vidas"
+                app:layout_constraintVertical_weight="1">
 
                 <ImageView
                     android:id="@+id/f1c1"
@@ -82,35 +92,37 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f1c2"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f1c3"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/f2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/f3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/f1">
+                app:layout_constraintTop_toBottomOf="@+id/f1"
+                app:layout_constraintVertical_weight="1">
 
                 <ImageView
                     android:id="@+id/f2c1"
@@ -119,7 +131,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f2c2"
@@ -128,7 +140,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f2c3"
@@ -137,19 +149,19 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/f3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="0dp"
                 android:adjustViewBounds="true"
                 android:gravity="center"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintTop_toBottomOf="@id/f2">
+                app:layout_constraintBottom_toTopOf="@+id/f4"
+                app:layout_constraintTop_toBottomOf="@+id/f2"
+                app:layout_constraintVertical_weight="1">
 
                 <ImageView
                     android:id="@+id/f3c1"
@@ -158,7 +170,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f3c2"
@@ -167,7 +179,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f3c3"
@@ -176,18 +188,20 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/f4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="0dp"
                 android:adjustViewBounds="true"
                 android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/f3">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/f3"
+                app:layout_constraintVertical_weight="1">
 
                 <ImageView
                     android:id="@+id/f4c1"
@@ -196,7 +210,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f4c2"
@@ -205,7 +219,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
                 <ImageView
                     android:id="@+id/f4c3"
@@ -214,23 +228,13 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/volteada" />
+                    android:src="@drawable/detras" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/iniciar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="INICIAR PARTIDA"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/f4"></Button>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
 
 
