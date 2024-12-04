@@ -78,13 +78,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 if (contadorPareja == 2) {
-
                     if (sonPareja()) {
                         Log.v("debug2", "contador con: " + contadorPareja)
                         // Si son pareja, reinicia el contador para seguir buscando sin clic adicional
                         contadorPareja = 0
                     } else {
-                        Thread.sleep(1000)
+                        voltearCarta(i)
                         puntosVida -= 1
                         vidas.text = "Vidas: $puntosVida"
                         Log.v("debug2", "contador sin pareja: " + contadorPareja)
@@ -101,7 +100,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
     fun sePuedeVoltear(pos:Int):Boolean{
         return estadoCartas[pos] == 0
