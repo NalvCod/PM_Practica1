@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculaTron">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barraSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/design_default_color_secondary_variant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iconoSup"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_arrow_back_ios_new_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="10dp">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/tituloanadir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="CalculaTron"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconoSup"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </EditText>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/barraSuperior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="40sp"
+        android:text="20"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/cuentaPasada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuenta pasada"
+        app:layout_constraintTop_toBottomOf="@id/contador"
+        app:layout_constraintEnd_toStartOf="@+id/cuentaActual"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/cuentaActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuenta actual"
+        app:layout_constraintTop_toTopOf="@id/cuentaPasada"
+        app:layout_constraintEnd_toStartOf="@+id/cuentaSiguiente"
+        app:layout_constraintStart_toEndOf="@+id/cuentaPasada" />
+
+    <TextView
+        android:id="@+id/cuentaSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuenta siguiente"
+        app:layout_constraintTop_toTopOf="@id/cuentaPasada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cuentaActual" />
+
+    <TextView
+        android:id="@+id/victoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Has acertado!"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/cuentaActual"
+        app:layout_constraintStart_toStartOf="@+id/cuentaActual"
+        app:layout_constraintTop_toBottomOf="@+id/cuentaActual" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victoria"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="20dp"
+        app:cardElevation="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/victoria">
+
+            <LinearLayout
+                android:id="@+id/fila1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="1"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="2"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="3"
+                    android:textSize="30sp">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fila2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fila1">
+
+                <Button
+                    android:id="@+id/b4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="4"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="5"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="6"
+                    android:textSize="30sp">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fila3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fila2">
+
+                <Button
+                    android:id="@+id/b7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="7"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="8"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/b9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="9"
+                    android:textSize="30sp">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fila4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fila3">
+
+                <Button
+                    android:id="@+id/sumar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="+"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/restar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="-"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/multiplicar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="x"
+                    android:textSize="30sp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/dividir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="/"
+                    android:textSize="30sp">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fila4">
+
+                <Button
+                    android:id="@+id/enviar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/design_default_color_secondary_variant"
+                    android:text="ENVIAR"
+                    android:textSize="30sp"
+                    android:layout_marginBottom="20dp">
+
+                </Button>
+
+            </LinearLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

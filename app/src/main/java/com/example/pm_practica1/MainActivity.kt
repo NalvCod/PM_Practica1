@@ -1,6 +1,7 @@
 package com.example.pm_practica1
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
@@ -53,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         vidas = findViewById(R.id.vidas)
         iniciar = findViewById(R.id.iniciar)
 
+
+
+
         randomizarCartas()
 
         iniciar.setOnClickListener {
@@ -80,16 +84,24 @@ class MainActivity : AppCompatActivity() {
                 if (contadorPareja == 2) {
                     if (sonPareja()) {
                         Log.v("debug2", "contador con: " + contadorPareja)
-                        // Si son pareja, reinicia el contador para seguir buscando sin clic adicional
                         contadorPareja = 0
                     } else {
-                        voltearCarta(i)
-                        puntosVida -= 1
-                        vidas.text = "Vidas: $puntosVida"
-                        Log.v("debug2", "contador sin pareja: " + contadorPareja)
-                        cartasTapar()
-                        // Reinicia el contador de parejas aquí para continuar buscando inmediatamente
-                        contadorPareja = 0
+                        object : CountDownTimer(1000, 1000){
+                            override fun onTick(millisUntilFinished: Long) {
+                                congelar(true)
+                            }
+
+                            override fun onFinish() {
+                                voltearCarta(i)
+                                puntosVida -= 1
+                                vidas.text = "Vidas: $puntosVida"
+                                Log.v("debug2", "contador sin pareja: " + contadorPareja)
+                                cartasTapar()
+                                contadorPareja = 0
+                                congelar(false)
+                            }
+                        }.start()
+
                     }
                 }
 
@@ -97,6 +109,18 @@ class MainActivity : AppCompatActivity() {
                     cartasTapar()
                     randomizarCartas()
                 }
+            }
+        }
+    }
+
+    fun congelar(congelado: Boolean) {
+        if (congelado) {
+            for (carta in casillas) {
+                carta.isClickable = false
+            }
+        } else {
+            for (card in casillas) {
+                card.isClickable = true
             }
         }
     }
