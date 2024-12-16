@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var f4c1 : ImageView
     private lateinit var f4c2 : ImageView
     private lateinit var f4c3 : ImageView
+
     private lateinit var vidas : TextView
     private lateinit var iniciar : Button
 
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var parejaPos = intArrayOf(-1, -2)
 
     private var contadorPareja = 0
-    private var puntosVida = 10
+    private var puntosVida = 3
     private lateinit var casillas :  Array<ImageView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,6 +110,7 @@ class MainActivity : AppCompatActivity() {
                 if (puntosVida <= 0) {
                     cartasTapar()
                     randomizarCartas()
+                    Toast.makeText(this, "Game Over", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -131,7 +134,8 @@ class MainActivity : AppCompatActivity() {
 
     fun randomizarCartas(){
         pares.shuffle()
-        vidas.text = "Vidas: 3"
+        puntosVida = 3
+        vidas.text = "Vidas: $puntosVida"
     }
 
     fun voltearCarta(pos:Int){
@@ -167,3 +171,5 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
+
