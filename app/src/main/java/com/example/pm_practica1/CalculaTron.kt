@@ -60,8 +60,6 @@ class CalculaTron : AppCompatActivity() {
         input = findViewById(R.id.input)
         barraSuperior = findViewById(R.id.barraSuperior)
         iconoSup = findViewById(R.id.iconoSup)
-        tituloanadir = findViewById(R.id.tituloanadir)
-        formulario = findViewById(R.id.formulario)
 
 
     }
